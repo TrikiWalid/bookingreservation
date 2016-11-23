@@ -80,9 +80,7 @@
 		<tiles:insertAttribute name="body" />
 
 
-		<center>
-			<tiles:insertAttribute name="footer" />
-		</center>
+		
 
 	</div>
 
