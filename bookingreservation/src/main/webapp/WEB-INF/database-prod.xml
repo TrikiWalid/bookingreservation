@@ -3,14 +3,16 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-   
 
-   <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
-      <property name="url"
-         value="jdbc:mysql://localhost:3306/reservationbooking" />
-      <property name="username" value="root" />
-      <property name="password" value="" />
-   </bean>
+
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="url"
+			value="jdbc:mysql://localhost:3306/reservationbooking" />
+			<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<property name="username" value="root" />
+		<property name="password" value="" />
+
+	</bean>
 
 	<bean
 		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean"
@@ -21,6 +23,7 @@
 			<props>
 				<prop key="hibernate.show_sql">false</prop>
 				<prop key="hibernate.hbm2ddl.auto">create</prop>
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
 			</props>
 		</property>
 		<property name="persistenceProvider">
